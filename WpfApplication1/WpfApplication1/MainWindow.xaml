@@ -1,0 +1,81 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="525">
+    <Grid Width="350" Height="520" x:Name="Title" MouseLeftButtonDown="Title_MouseLeftButtonDown">
+
+        <!--視窗陰影-->
+
+        <Grid.Effect>
+            <DropShadowEffect Opacity="0.25" Direction="-90" Color="#FF000000" BlurRadius="20" ShadowDepth="10"></DropShadowEffect>
+        </Grid.Effect>
+
+
+        <!--版面區塊限定-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Width="350" Height=" 350" CornerRadius="15,15,0,0">
+
+            <!--顏色-->
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Orange" Offset="0.0" />
+                    <GradientStop Color="#FFB366" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!--按鈕與拉桿-->
+
+            <TextBlock Margin="135 20 20 20" FontSize="21" Foreground="White">體重標準</TextBlock>
+        </Border>
+
+        <Button Margin=" 50,70,200,240" x:Name="FormalBtn" Click="FormalBtn_Click" Background="Beige" FontSize="20" Foreground="#FFB366" BorderBrush="{x:Null}">男生</Button>
+        <Button  Margin=" 200,70,50,240" x:Name="AsianBtn" Click="AsianBtn_Click" Background="Beige" BorderBrush="{x:Null}" FontSize="20" Foreground="#FFB366">女生</Button>
+        <TextBlock Foreground="White" Margin="140 140 100 100" FontSize="20" x:Name="heightBlock">Height</TextBlock>
+        <Slider Margin="20 180 20 140" Minimum="110" Maximum="200" x:Name="heigtSlider" ValueChanged="heigtSlider_ValueChanged"></Slider>
+        <TextBlock Foreground="White" Margin=" 140 230 100 100" FontSize="20" x:Name="weigtBlock">Weight</TextBlock>
+        <Slider Margin="20,250,20,0" Minimum="30" Maximum="120" x:Name="weightSlider" ValueChanged="weightSlider_ValueChanged" Height="30" VerticalAlignment="Top"></Slider>
+
+        <Border CornerRadius=" 0,0,15,15" Grid.Row="1" Background="White">
+            <Canvas Width="350">
+                <StackPanel Margin="20">
+                    <TextBlock FontWeight="Bold" Foreground="#563300">你的 Bmi</TextBlock>
+
+                    <!--BMI數值-->
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="numberOne" FontSize="50"  Margin="10" Foreground="#FF9933"></TextBlock>
+                        <TextBlock x:Name="numberTwo" FontSize="20" Margin=" 10" Foreground="#FF9933"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock x:Name="bmiText" Margin="100 140 20 20" Foreground="#996633">您的體重標準</TextBlock>
+
+                <!--重置按鈕-->
+
+                <Grid Canvas.Left="242" Canvas.Top="28">
+                    <Ellipse Fill="White" Stroke="Red" StrokeThickness="5" Width=" 80" Height=" 80" x:Name="returnBtn" MouseLeftButtonDown="returnBtn_MouseLeftButtonDown">
+                        <Ellipse.Effect>
+                            <DropShadowEffect Opacity="0.25" Direction="-90" Color="#563300"></DropShadowEffect>
+                        </Ellipse.Effect>
+                    </Ellipse>
+                    <TextBlock FontFamily="Windings 3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="50" FontStyle="Italic">C</TextBlock>
+                </Grid>
+            </Canvas>
+
+            <!--關閉按鈕-->
+
+        </Border>
+        <StackPanel Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
+            <Ellipse Width="15" Height="15" Fill="#FF6666" x:Name="closeBtn" MouseLeftButtonDown="closeBtn_MouseLeftButtonDown"></Ellipse>
+        </StackPanel>
+
+    </Grid>
+</Window>
